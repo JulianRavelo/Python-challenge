@@ -15,7 +15,7 @@ minimum_month =""
 maximum_month = ""
 
 # Look for csv data
-csvpath = os.path.join('..', 'Resources', 'budget_data.csv')
+csvpath = os.path.join('Resources', 'budget_data.csv')
 
 # Open csv
 with open(csvpath, 'r') as csvfile:	
@@ -43,8 +43,16 @@ maximum_month = months [maximum]
 minimum = changes.index(min(changes))+1
 minimum_month = months [minimum]
 
+# Printing results
+print("Financial Analysis\n----------------------------")	
+print(f"Total Months: {month_count}")	
+print(f"Total: ${total}")	
+print(f"Average Change: ${average}")	
+print(f"Greatest Increase in Profits: {maximum_month} (${max(changes)})")	
+print(f"Greatest Decrease in Profits: {minimum_month} (${min(changes)})")
 # Write on txt file
-with open ('analysis.txt', 'w') as analysis:
+txtpath = os.path.join('Analysis', 'analysis.txt')
+with open (txtpath, 'w') as analysis:
     analysis.write("Financial Analysis\n \n \n----------------------------\n \n")	
     analysis.write(f"Total Months: {month_count}\n \n")	
     analysis.write(f"Total: ${total}\n \n")	
